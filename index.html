@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CO2-Foottracker</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- Header -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a href="#" class="navbar-brand">
+          <img src="Bilder/Logo.png" width="70" height="70" alt="Logo" />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto me-5">
+            <li class="nav-item active">
+              <a href="#" class="nav-link"> Startseite </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link"> Info </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link"> Über Uns </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link"> Kontakt </a>
+            </li>
+          </ul>
+
+          <div class="dropdown">
+            <button
+              class="btn custom-btn dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Deutsch
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Deutsch</a></li>
+              <li><a class="dropdown-item" href="#">English</a></li>
+              <li><a class="dropdown-item" href="#">اللغة العربية</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero-Image mit H1 und H2 -->
+    <figure class="eyecatcher">
+      <img src="Bilder/Regenwald.png" alt="Regenwald" />
+      <figcaption>
+        <h1>Transparenz für eine grünere Zukunft!</h1>
+        <h2>
+          Wir machen sichtbar, wo CO₂ entsteht - damit Unternehmen, Länder und
+          Menschen gemeinsam nachhaltige Entscheidungen treffen können.
+        </h2>
+      </figcaption>
+    </figure>
+
+    <!-- CO₂-Tabelle -->
+    <table class="table table-striped table-hover table-bordered">
+      <caption>
+        CO₂-Emissionen der Unternehmen
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Land</th>
+          <th scope="col">Unternehmen</th>
+          <th scope="col">Emissionen 2024 (in Millionen Tonnen)</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr>
+          <td>USA</td>
+          <td>Amazon</td>
+          <td>8.0</td>
+        </tr>
+        <tr>
+          <td>Deutschland</td>
+          <td>Volkswagen</td>
+          <td>14.75</td>
+        </tr>
+        <tr>
+          <td>Großbritannien</td>
+          <td>Shell</td>
+          <td>231.62</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
