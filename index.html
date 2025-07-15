@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,7 +19,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
     <!-- Header -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="container">
@@ -77,47 +77,24 @@
     </nav>
 
     <!-- Hero-Image mit H1 und H2 -->
-    <figure class="eyecatcher">
-      <img src="Bilder/Regenwald.png" alt="Regenwald" />
-      <figcaption>
-        <h1>Transparenz für eine grünere Zukunft!</h1>
-        <h2>
-          Wir machen sichtbar, wo CO₂ entsteht - damit Unternehmen, Länder und
-          Menschen gemeinsam nachhaltige Entscheidungen treffen können.
-        </h2>
-      </figcaption>
-    </figure>
+ <div class="container">
+  <figure class="eyecatcher">
+    <img src="Bilder/Regenwald.png" alt="Regenwald" />
+    <figcaption>
+      <h1>Transparenz für eine grünere Zukunft!</h1>
+      <h2>
+        Wir machen sichtbar, wo CO₂ entsteht - damit Unternehmen, Länder und
+        Menschen gemeinsam nachhaltige Entscheidungen treffen können.
+      </h2>
+    </figcaption>
+  </figure>
+</div>
 
     <!-- CO₂-Tabelle -->
-    <table class="table table-striped table-hover table-bordered">
-      <caption>
-        CO₂-Emissionen der Unternehmen
-      </caption>
-      <thead>
-        <tr>
-          <th scope="col">Land</th>
-          <th scope="col">Unternehmen</th>
-          <th scope="col">Emissionen 2024 (in Millionen Tonnen)</th>
-        </tr>
-      </thead>
-      <tbody class="table-group-divider">
-        <tr>
-          <td>USA</td>
-          <td>Amazon</td>
-          <td>8.0</td>
-        </tr>
-        <tr>
-          <td>Deutschland</td>
-          <td>Volkswagen</td>
-          <td>14.75</td>
-        </tr>
-        <tr>
-          <td>Großbritannien</td>
-          <td>Shell</td>
-          <td>231.62</td>
-        </tr>
-      </tbody>
-    </table>
+
+    <div class="container">
+      <div id="table-container"></div>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
@@ -125,4 +102,5 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  <script src="Untitled.js"></script>
 </html>

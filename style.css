@@ -14,15 +14,13 @@ h2 {
   max-width: 100%;
   overflow: hidden;
   margin-top: 7rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .eyecatcher img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 1rem;
+  border-radius: 8px;
 }
 .eyecatcher figcaption {
   position: absolute;
@@ -42,7 +40,41 @@ h2 {
   margin-bottom: 4rem;
 }
 
-.table {
-  margin-top: 1rem;
+
+
+
+/* Tabelle */
+
+.container {
+  max-width: 100%;
   margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+th {
+  background-color: #344B12;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+td {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+tr:hover {
+  background-color: #f1f1f1;
+}
+tr:nth-child(even) td {
+  background-color: #f3f3f3;
 }
