@@ -49,6 +49,7 @@ h2 {
   max-width: 100%;
   margin-left: 1rem;
   margin-right: 1rem;
+
 }
 
 table {
@@ -77,4 +78,24 @@ tr:hover {
 }
 tr:nth-child(even) td {
   background-color: #f3f3f3;
+}
+
+
+/* Previous-Next-Button */
+.pagination {
+margin-top: 1rem;
+}
+.page-link {
+  color: #000; /* Schriftfarbe */
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-link:hover {
+  background-color: #eee;
+  color: #6d7424; /* Farbe beim Hover */
+}
+.page-item.active .page-link {
+  background-color: #344B12;
+  color: #fff;
 }

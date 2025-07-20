@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,7 +40,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto me-5">
             <li class="nav-item active">
-              <a href="#" class="nav-link"> Startseite </a>
+              <a href="#" class="nav-link" aria-current="page"> Startseite </a>
             </li>
 
             <li class="nav-item">
@@ -77,23 +76,37 @@
     </nav>
 
     <!-- Hero-Image mit H1 und H2 -->
- <div class="container">
-  <figure class="eyecatcher">
-    <img src="Bilder/Regenwald.png" alt="Regenwald" />
-    <figcaption>
-      <h1>Transparenz für eine grünere Zukunft!</h1>
-      <h2>
-        Wir machen sichtbar, wo CO₂ entsteht - damit Unternehmen, Länder und
-        Menschen gemeinsam nachhaltige Entscheidungen treffen können.
-      </h2>
-    </figcaption>
-  </figure>
-</div>
+    <div class="container">
+      <figure class="eyecatcher">
+        <img src="Bilder/Regenwald.png" alt="Luftaufnahme eines Regenwalds" />
+        <figcaption>
+          <h1>Transparenz für eine grünere Zukunft!</h1>
+          <h2>
+            Wir machen sichtbar, wo CO₂ entsteht - damit Unternehmen, Länder und
+            Menschen gemeinsam nachhaltige Entscheidungen treffen können.
+          </h2>
+        </figcaption>
+      </figure>
+    </div>
 
     <!-- CO₂-Tabelle -->
 
     <div class="container">
-      <div id="table-container"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Land</th>
+            <th>Unternehmen</th>
+            <th>Emissionen</th>
+          </tr>
+        </thead>
+        <tbody id="data-body"></tbody>
+      </table>
+
+      <nav aria-label="Table-navigation">
+        <ul class="pagination">
+        </ul>
+      </nav>
     </div>
 
     <script
@@ -101,6 +114,7 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
+
+    <script src="script.js"></script>
   </body>
-  <script src="Untitled.js"></script>
 </html>
