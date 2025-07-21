@@ -89,23 +89,49 @@
       </figure>
     </div>
 
-    <!-- CO₂-Tabelle -->
+    <!-- CO₂-Tabelle (wird dynamisch mit JavaScript erzeugt) -->
 
     <div class="container">
-      <table>
+      <table id="emissionsTable">
         <thead>
           <tr>
-            <th>Land</th>
-            <th>Unternehmen</th>
-            <th>Emissionen</th>
+            <th>
+              <span class="sort-label" data-key="land">Land</span>
+              <span class="sort-icons">
+                <span class="up">▲</span>
+                <span class="down">▼</span>
+              </span>
+            </th>
+            <th>
+              <span class="sort-label" data-key="unternehmen">Unternehmen</span>
+              <span class="sort-icons">
+                <span class="up">▲</span>
+                <span class="down">▼</span>
+              </span>
+            </th>
+            <th>
+              <span class="sort-label" data-key="emissionen">Emissionen</span>
+              <span class="sort-icons">
+                <span class="up">▲</span>
+                <span class="down">▼</span>
+              </span>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <input type="text" id="filterLand" class="rounded-pill shadow-sm filterInput" placeholder="" />
+            </th>
+            <th>
+              <input type="text" id="filterUnternehmen" class="rounded-pill shadow-sm filterInput" placeholder="" />
+            </th>
+            <th></th>
           </tr>
         </thead>
         <tbody id="data-body"></tbody>
       </table>
 
       <nav aria-label="Table-navigation">
-        <ul class="pagination">
-        </ul>
+        <ul class="pagination"></ul>
       </nav>
     </div>
 
