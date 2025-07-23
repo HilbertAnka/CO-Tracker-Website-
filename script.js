@@ -1,5 +1,9 @@
+
 let originalData = [];
 let data = [];
+let currentLanguage = 'de';
+
+let allLanguageData = {};  // globales Objekt für alle Sprachdaten
 
 // Tabelle + Pagination-Variablen
 const pageSize = 10;
@@ -7,8 +11,8 @@ let curPage = 1;
 let totalPages;
 
 // Filter-Variablen
-let filterLand = "";
-let filterUnternehmen = "";
+let filterCountry = "";
+let filterCompany = "";
 
 // DOM-Elemente
 const dataBody = document.getElementById("data-body");
@@ -16,18 +20,15 @@ const dataBody = document.getElementById("data-body");
 
 
 // JSON-Daten laden und initialisieren
-fetch("./tabelle.json")
+fetch("./table_data.json")
   .then((response) => {
     if (!response.ok) throw new Error("Fehler beim Laden der JSON-Datei.");
     return response.json();
   })
   .then((jsonData) => {
-    data = jsonData;
-    originalData = [...jsonData]; // Kopie der Daten, damit nach dem Sortiern oder Filtern immer das Original noch vorhanden ist
-    totalPages = Math.ceil(data.length / pageSize); // Rechnung wieviele Pages insgesamt
-    renderTable();
-    renderPagination();
-    setupSortListeners(); // richtet die Klick-Events für die Sortierpfeile ein
+    allLanguageData = jsonData;
+    currentLanguage = "de"; // Standard-Sprache setzen
+    switchLanguage(currentLanguage); // Initialer Sprachwechsel
   })
   .catch((error) => {
     console.error("Fehler:", error);
@@ -38,9 +39,9 @@ fetch("./tabelle.json")
 function createRow(row) { // erzeugt aus einem Datenobjekt ein HTML-String (Tabellenzeile)
   return `
     <tr>
-      <td>${row.land}</td>
-      <td>${row.unternehmen}</td>
-      <td>${row.emissionen}</td>
+      <td>${row.country}</td>
+      <td>${row.company}</td>
+      <td>${row.emissions}</td>
     </tr>
   `;
 }
@@ -134,11 +135,15 @@ function renderPagination() {
 function setupSortListeners() {
   const headers = document.querySelectorAll("#emissionsTable th"); // alle th-Elemente werden geholt (Überschriftenzeile)
 
-  // für jede Spalte wird wird festgelegt:
+  // für jede Spalte wird festgelegt:
   headers.forEach((th) => {
     const label = th.querySelector(".sort-label");
     const upIcon = th.querySelector(".up");
     const downIcon = th.querySelector(".down");
+      if (!label || !upIcon || !downIcon) {
+    // Überspringen, falls eins der Elemente fehlt
+    return;
+  }
     const key = label.dataset.key;
 
     // bei Klick auf den Spaltennamen → Tabelle auf nicht-sortierten Ursprungszustand zurücksetzen
@@ -166,15 +171,18 @@ function setupSortListeners() {
 
 // sortiert die Daten nach der gewünschten Spalte und Richtung
 function sortByKey(key, asc) {
+  console.log(`Sortieren nach: ${key}, aufsteigend: ${asc}`);
   window.currentSortKey = key;
   window.currentSortAsc = asc;
 
   // Array wird sortiert
   data.sort((a, b) => {
-    const valA = a[key];
-    const valB = b[key];
+    let valA = a[key];
+    let valB = b[key];
 
     if (!isNaN(valA) && !isNaN(valB)) {
+        valA = Number(valA);
+    valB = Number(valB);
       return asc ? valA - valB : valB - valA;
     } else {
       return asc
@@ -213,7 +221,7 @@ function updateSortIndicators() {
 
 // wenn zurückgesetzt wird -> Entfernung der Hervorhebung der Pfeile
 function clearSortIndicators() {
-  document.querySelectorAll("#emissionsTable .up, .down").forEach((icon) => {
+  document.querySelectorAll("#emissionsTable .up, #emissionsTable .down").forEach((icon) => {
     icon.classList.remove("active");
   });
 }
@@ -225,9 +233,9 @@ function clearSortIndicators() {
 
 function applyFilters() {
   data = originalData.filter((row) => { // für jede Zeile im Datensatz wird geprüft ...
-    const landMatch = row.land.toLowerCase().includes(filterLand.toLowerCase()); // ... ob das eingegebene Suchwort irgendwo enthalten ist (unabhängig von Groß- oder Kleinschreibung)
-    const unternehmenMatch = row.unternehmen.toLowerCase().includes(filterUnternehmen.toLowerCase());
-    return landMatch && unternehmenMatch; // es wird nur die Zeile behalten, die die Bedingung erfüllt
+    const countryMatch = row.country.toLowerCase().includes(filterCountry.toLowerCase()); // ... ob das eingegebene Suchwort irgendwo enthalten ist (unabhängig von Groß- oder Kleinschreibung)
+    const companyMatch = row.company.toLowerCase().includes(filterCompany.toLowerCase());
+    return countryMatch && companyMatch; // es wird nur die Zeile behalten, die die Bedingung erfüllt
   });
 
   curPage = 1; // nach dem Filtern zurück auf Seite 1
@@ -236,12 +244,12 @@ function applyFilters() {
 }
 
 // Filterfunktion reagiert live, sobald im Textfeld getippt wird
-document.querySelector("#filterLand").addEventListener("input", (e) => {
-  filterLand = e.target.value;
+document.querySelector("#filterCountry").addEventListener("input", (e) => {
+  filterCountry = e.target.value;
   applyFilters();
 });
 
-document.querySelector("#filterUnternehmen").addEventListener("input", (e) => {
-  filterUnternehmen = e.target.value;
+document.querySelector("#filterCompany").addEventListener("input", (e) => {
+  filterCompany = e.target.value;
   applyFilters();
 });

@@ -1,12 +1,33 @@
 body {
   background-color: #e4e6cc;
   font-family: "Montserrat", sans-serif;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#hero,
+#info,
+#tabelle {
+  scroll-margin-top: 100px;
+}
+
+.nav {
+  margin-left: 2rem;
+  margin-top: 7rem;
+}
+.nav-link {
+  color: #4a6129;
 }
 
 h1,
 h2 {
   color: white;
   font-weight: bold;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 /* Eyecatcher */
@@ -15,7 +36,8 @@ h2 {
   position: relative;
   max-width: 100%;
   overflow: hidden;
-  margin-top: 7rem;
+  margin-top: 1rem;
+  
 }
 
 .eyecatcher img {
@@ -23,13 +45,15 @@ h2 {
   height: auto;
   display: block;
   border-radius: 8px;
+  
 }
 .eyecatcher figcaption {
   position: absolute;
-  bottom: 5%;
-  left: 2.5rem;
+  bottom: 2%;
+  margin: 3rem;
   width: 50%;
   color: white;
+  
 }
 
 .eyecatcher h1 {
@@ -42,13 +66,50 @@ h2 {
   margin-bottom: 4rem;
 }
 
+
+
+/* Info-Text */
+.info-section {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  padding: 1.5rem;
+  background-color: #d5d697;
+  border: 2px solid white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+h3,
+h5 {
+  padding: 1rem;
+  color: rgb(85, 91, 61);
+  font-weight: bold;
+}
+
+
+
+
+
 /* Tabelle */
+
+.tabellen-überschrift {
+
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+.tabellen-überschrift h2 {
+  color: #344b12;
+}
 
 .container {
   max-width: 100%;
   margin-left: 1rem;
   margin-right: 1rem;
 }
+
+
 
 table {
   width: 100%;
@@ -60,7 +121,7 @@ table {
 th,
 td {
   padding: 12px;
-  text-align: left;
+  text-align: start;
 }
 th {
   background-color: #344b12;
@@ -120,10 +181,34 @@ th {
 .sort-label {
   padding: 8px 12px;
   font-size: 1.2rem;
-  font-weight: 600; 
+  font-weight: 600;
 }
 
 .filterinput {
   border: 1px solid #ddd; /* dünner Rahmen */
   padding: 8px 12px;
+}
+
+
+
+
+
+/* Footer */
+
+.footer {
+  color: #4a6129;
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: center;
+  li {
+    line-height: 1.5;
+  }
+  a {
+    color: #4a6129;
+  }
+  hr {
+    height: 4px;
+    background-color: #d1d4a7;
+    border-radius: 2px;
+  }
 }

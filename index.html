@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,8 @@
   </head>
   <body>
     <!-- Header -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" dir="ltr">
       <div class="container">
         <a href="#" class="navbar-brand">
           <img src="Bilder/Logo.png" width="70" height="70" alt="Logo" />
@@ -40,19 +41,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto me-5">
             <li class="nav-item active">
-              <a href="#" class="nav-link" aria-current="page"> Startseite </a>
+              <a id="nav-home" href="#" class="nav-link" aria-current="page"> Startseite </a>
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link"> Info </a>
+              <a id="nav-info" href="#" class="nav-link"> Info </a>
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link"> Über Uns </a>
+              <a id="nav-about" href="#" class="nav-link"> Über Uns </a>
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link"> Kontakt </a>
+              <a id="nav-contact" href="#" class="nav-link"> Kontakt </a>
             </li>
           </ul>
 
@@ -60,28 +61,45 @@
             <button
               class="btn custom-btn dropdown-toggle"
               type="button"
+              id="languageDropdown"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Deutsch
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Deutsch</a></li>
-              <li><a class="dropdown-item" href="#">English</a></li>
-              <li><a class="dropdown-item" href="#">اللغة العربية</a></li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="switchLanguage('de')">Deutsch</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="switchLanguage('ar')">اللغة العربية</a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
 
+    <!-- lokales Menü -->
+
+    <nav class="nav">
+      <a id="local-nav-home" class="nav-link active" aria-current="page" href="#hero">Start</a>
+      <a id="local-nav-info" class="nav-link" href="#info">Info</a>
+      <a id="local-nav-table" class="nav-link" href="#tabelle">Tabelle</a>
+    </nav>
+
     <!-- Hero-Image mit H1 und H2 -->
+
     <div class="container">
       <figure class="eyecatcher">
         <img src="Bilder/Regenwald.png" alt="Luftaufnahme eines Regenwalds" />
+
         <figcaption>
-          <h1>Transparenz für eine grünere Zukunft!</h1>
-          <h2>
+          <h1 id="hero-heading">Transparenz für eine grünere Zukunft!</h1>
+          <h2 id="hero-subheading">
             Wir machen sichtbar, wo CO₂ entsteht - damit Unternehmen, Länder und
             Menschen gemeinsam nachhaltige Entscheidungen treffen können.
           </h2>
@@ -89,28 +107,45 @@
       </figure>
     </div>
 
+    <!-- Textbox -->
+
+    <div id="info" class="info-section">
+      <h3 id="textbox-heading">Sichtbar machen, was zählt!</h3>
+      <h5 id="textbox-text">
+        Transparenz für eine grünere Zukunft beginnt mit Wissen. Unsere
+        Datenübersicht zeigt, welche Unternehmen welchen CO₂-Fußabdruck
+        hinterlassen – verständlich, vergleichbar und zugänglich. Denn nur, wenn
+        sichtbar wird, wo Emissionen entstehen, können echte Veränderungen
+        angestoßen werden. Informiere dich und trage dazu bei, den Weg in eine
+        verantwortungsvolle, klimabewusste Zukunft mitzugestalten.
+      </h5>
+    </div>
+
     <!-- CO₂-Tabelle (wird dynamisch mit JavaScript erzeugt) -->
+    <div class="tabellen-überschrift">
+      <h2 id="table-heading">CO₂-Tabelle</h2>
+    </div>
 
     <div class="container">
       <table id="emissionsTable">
         <thead>
           <tr>
             <th>
-              <span class="sort-label" data-key="land">Land</span>
+              <span id="country" class="sort-label" data-key="country">Land</span>
               <span class="sort-icons">
                 <span class="up">▲</span>
                 <span class="down">▼</span>
               </span>
             </th>
             <th>
-              <span class="sort-label" data-key="unternehmen">Unternehmen</span>
+              <span id="company" class="sort-label" data-key="company">Unternehmen</span>
               <span class="sort-icons">
                 <span class="up">▲</span>
                 <span class="down">▼</span>
               </span>
             </th>
             <th>
-              <span class="sort-label" data-key="emissionen">Emissionen</span>
+              <span id="emissions" class="sort-label" data-key="emissions">CO₂-Emissionen (Tonnen pro Jahr)</span>
               <span class="sort-icons">
                 <span class="up">▲</span>
                 <span class="down">▼</span>
@@ -119,10 +154,20 @@
           </tr>
           <tr>
             <th>
-              <input type="text" id="filterLand" class="rounded-pill shadow-sm filterInput" placeholder="" />
+              <input
+                type="text"
+                id="filterCountry"
+                class="rounded-pill shadow-sm filterInput"
+                placeholder=""
+              />
             </th>
             <th>
-              <input type="text" id="filterUnternehmen" class="rounded-pill shadow-sm filterInput" placeholder="" />
+              <input
+                type="text"
+                id="filterCompany"
+                class="rounded-pill shadow-sm filterInput"
+                placeholder=""
+              />
             </th>
             <th></th>
           </tr>
@@ -130,17 +175,34 @@
         <tbody id="data-body"></tbody>
       </table>
 
-      <nav aria-label="Table-navigation">
+      <nav aria-label="Table-navigation" dir="ltr">
         <ul class="pagination"></ul>
       </nav>
     </div>
+
+    <!-- Footer -->
+
+    <footer class="footer bg-light">
+      <div>
+        <div>
+          <p>
+            CO₂ Tracker | Lindenstraße 34 | 12555 Berlin | mail@co2tracker.com
+          </p>
+          <p><a id="imprint" href="#">Impressum</a> | <a id="policy" href="#">Datenschutz</a></p>
+        </div>
+      </div>
+      <hr />
+      <div>
+        <div id="copyright">Copyright &copy; 2025 CO₂ Tracker. Alle Rechte vorbehalten.</div>
+      </div>
+    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
-
+    <script src="lang-switcher.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
