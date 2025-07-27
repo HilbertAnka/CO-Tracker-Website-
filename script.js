@@ -17,6 +17,13 @@ let filterCompany = "";
 // DOM-Elemente
 const dataBody = document.getElementById("data-body");
 
+document.querySelectorAll(".dropdown-item").forEach(item => {
+  item.addEventListener("click", () => {
+    const lang = item.dataset.lang;
+    switchLanguage(lang);
+  });
+});
+
 
 
 // JSON-Daten laden und initialisieren
@@ -27,8 +34,9 @@ fetch("./table_data.json")
   })
   .then((jsonData) => {
     allLanguageData = jsonData;
-    currentLanguage = "de"; // Standard-Sprache setzen
-    switchLanguage(currentLanguage); // Initialer Sprachwechsel
+ const savedLang = localStorage.getItem("language") || "de";
+currentLanguage = savedLang;
+switchLanguage(currentLanguage);
   })
   .catch((error) => {
     console.error("Fehler:", error);

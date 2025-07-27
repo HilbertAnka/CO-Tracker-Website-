@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CO2-Foottracker</title>
+    <link rel="icon" type="image/png" href="Bilder/favicon.png" />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -20,8 +22,11 @@
   <body>
     <!-- Header -->
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" dir="ltr">
-      <div class="container">
+    <nav
+      class="navbar fixed-top navbar-expand-lg navbar-light bg-light"
+      dir="ltr"
+    >
+      <div class="container-fluid">
         <a href="#" class="navbar-brand">
           <img src="Bilder/Logo.png" width="70" height="70" alt="Logo" />
         </a>
@@ -39,61 +44,65 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto me-5">
-            <li class="nav-item active">
-              <a id="nav-home" href="#" class="nav-link" aria-current="page"> Startseite </a>
-            </li>
+         <ul class="navbar-nav ms-auto me-3">
+          
+  <!-- Nav-Items -->
+  <li class="nav-item active">
+    <a id="nav-home" href="#" class="nav-link" aria-current="page">Startseite</a>
+  </li>
+  <li class="nav-item">
+    <a id="nav-info" href="info.html" class="nav-link">Info</a>
+  </li>
+  <li class="nav-item">
+    <a id="nav-about" href="about.html" class="nav-link">Über Uns</a>
+  </li>
+  <li class="nav-item">
+    <a id="nav-contact" href="contact.html" class="nav-link">Kontakt</a>
+  </li>
 
-            <li class="nav-item">
-              <a id="nav-info" href="#" class="nav-link"> Info </a>
-            </li>
-
-            <li class="nav-item">
-              <a id="nav-about" href="#" class="nav-link"> Über Uns </a>
-            </li>
-
-            <li class="nav-item">
-              <a id="nav-contact" href="#" class="nav-link"> Kontakt </a>
-            </li>
-          </ul>
-
-          <div class="dropdown">
-            <button
-              class="btn custom-btn dropdown-toggle"
-              type="button"
-              id="languageDropdown"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Deutsch
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#" onclick="switchLanguage('de')">Deutsch</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#" onclick="switchLanguage('ar')">اللغة العربية</a>
-              </li>
-            </ul>
+  <!-- Sprachwechsel-Dropdown-Button -->
+  <li class="nav-item dropdown language-switcher">
+    <a
+      class="nav-link dropdown-toggle"
+      href="#"
+      id="languageDropdown"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Deutsch
+    </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li>
+      <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+      <li><a class="dropdown-item" href="#" data-lang="ar">اللغة العربية</a></li>
+    </ul>
+  </li>
+</ul>
           </div>
         </div>
       </div>
     </nav>
 
+    <main style="flex-grow: 1">
+
     <!-- lokales Menü -->
 
-    <nav class="nav">
-      <a id="local-nav-home" class="nav-link active" aria-current="page" href="#hero">Start</a>
+    <nav class="nav" aria-label="Sections of the homepage">
+      <a
+        id="local-nav-home"
+        class="nav-link active"
+        aria-current="page"
+        href="#hero-heading"
+        >Start</a
+      >
       <a id="local-nav-info" class="nav-link" href="#info">Info</a>
-      <a id="local-nav-table" class="nav-link" href="#tabelle">Tabelle</a>
+      <a id="local-nav-table" class="nav-link" href="#table-heading">Tabelle</a>
     </nav>
 
     <!-- Hero-Image mit H1 und H2 -->
 
-    <div class="container">
+    <div class="container-fluid image-container">
       <figure class="eyecatcher">
         <img src="Bilder/Regenwald.png" alt="Luftaufnahme eines Regenwalds" />
 
@@ -126,26 +135,31 @@
       <h2 id="table-heading">CO₂-Tabelle</h2>
     </div>
 
-    <div class="container">
-      <table id="emissionsTable">
+    <div class="container table-container">
+      <div class="table-responsive">
+           <table id="emissionsTable">
         <thead>
           <tr>
             <th>
-              <span id="country" class="sort-label" data-key="country">Land</span>
+              <span id="country" class="sort-label" data-key="country"
+                >Land</span
+              >
               <span class="sort-icons">
                 <span class="up">▲</span>
                 <span class="down">▼</span>
               </span>
             </th>
             <th>
-              <span id="company" class="sort-label" data-key="company">Unternehmen</span>
+              <span id="company" class="sort-label" data-key="company"
+                >Unternehmen</span
+              >
               <span class="sort-icons">
                 <span class="up">▲</span>
                 <span class="down">▼</span>
               </span>
             </th>
             <th>
-              <span id="emissions" class="sort-label" data-key="emissions">CO₂-Emissionen (Tonnen pro Jahr)</span>
+              <span id="emissions" class="sort-label" data-key="emissions">CO₂-Emissionen <br> (Tonnen pro Jahr)</span>
               <span class="sort-icons">
                 <span class="up">▲</span>
                 <span class="down">▼</span>
@@ -178,7 +192,11 @@
       <nav aria-label="Table-navigation" dir="ltr">
         <ul class="pagination"></ul>
       </nav>
+      </div>
+   
     </div>
+
+    </main>
 
     <!-- Footer -->
 
@@ -188,12 +206,17 @@
           <p>
             CO₂ Tracker | Lindenstraße 34 | 12555 Berlin | mail@co2tracker.com
           </p>
-          <p><a id="imprint" href="#">Impressum</a> | <a id="policy" href="#">Datenschutz</a></p>
+          <p>
+            <a id="imprint" href="imprint-policy.html">Impressum</a> |
+            <a id="policy" href="imprint-policy.html">Datenschutz</a>
+          </p>
         </div>
       </div>
       <hr />
       <div>
-        <div id="copyright">Copyright &copy; 2025 CO₂ Tracker. Alle Rechte vorbehalten.</div>
+        <div id="copyright">
+          Copyright &copy; 2025 CO₂ Tracker. Alle Rechte vorbehalten.
+        </div>
       </div>
     </footer>
 

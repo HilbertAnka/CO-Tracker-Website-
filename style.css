@@ -1,42 +1,53 @@
-body {
+html, body {
   background-color: #e4e6cc;
   font-family: "Montserrat", sans-serif;
-
-}
-
-html {
   scroll-behavior: smooth;
+  height: 100%;
+  margin: 0;
 }
 
-#hero,
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#hero-heading,
 #info,
-#tabelle {
-  scroll-margin-top: 100px;
+#table-heading,
+#question1, #question2, #question3, #question4, #about-info {
+  scroll-margin-top: 100px; 
 }
 
 .nav {
-  margin-left: 2rem;
+  margin-inline-start: 2rem;
   margin-top: 7rem;
 }
 .nav-link {
   color: #4a6129;
 }
 
+
+
 h1,
 h2 {
   color: white;
   font-weight: bold;
-  margin-left: 1rem;
+  margin-inline-start: 1rem;
   margin-top: 1rem;
 }
 
 /* Eyecatcher */
+
 
 .eyecatcher {
   position: relative;
   max-width: 100%;
   overflow: hidden;
   margin-top: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   
 }
 
@@ -44,16 +55,14 @@ h2 {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 8px;
   
 }
 .eyecatcher figcaption {
   position: absolute;
   bottom: 2%;
-  margin: 3rem;
+  margin-inline-start: 3rem;
   width: 50%;
   color: white;
-  
 }
 
 .eyecatcher h1 {
@@ -66,30 +75,88 @@ h2 {
   margin-bottom: 4rem;
 }
 
+/* Großer Bildschirm, >1200px */
+@media (min-width: 1200px) {
+  .eyecatcher h1 {
+    font-size: 2.5rem; /* max Größe */
+  }
+  .eyecatcher h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mittlerer Bildschirm, z.B. Tablet 768px - 1199px */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .eyecatcher h1 {
+    font-size: 2rem;
+  }
+  .eyecatcher h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Kleiner Bildschirm, z.B. Handy unter 768px */
+@media (max-width: 767px) {
+  .eyecatcher {
+    width: 90%; /* z.B. Breite anpassen */
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+  }
+  .eyecatcher h1 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .eyecatcher h2 {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Sehr kleine Bildschirme, <480px (optional) */
+@media (max-width: 479px) {
+  .eyecatcher h1 {
+    font-size: 1.2rem;
+  }
+  .eyecatcher h2 {
+    font-size: 0.9rem;
+  }
+}
 
 
-/* Info-Text */
 .info-section {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
+  margin: 2rem auto 1rem auto;
+  max-width: 1400px;
   padding: 1.5rem;
   background-color: #d5d697;
   border: 2px solid white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
 }
 
-h3,
-h5 {
-  padding: 1rem;
+h3, h4, h5, p {
+  margin: 1rem 0;
   color: rgb(85, 91, 61);
   font-weight: bold;
+  padding: 0;
 }
 
+@media (max-width: 576px) {
+  .info-section {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
 
+  h3 {
+    font-size: 1.5rem;
+  }
 
+  h5 {
+    font-size: 1rem;
+  }
+}
 
+#textbox-heading {color: #6e580a;}
 
 /* Tabelle */
 
@@ -103,13 +170,17 @@ h5 {
   color: #344b12;
 }
 
-.container {
+.table-container {
   max-width: 100%;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
+@media (min-width: 1084px) {
+  .table-container {
+    max-width: 75%;
+  }
+}
 
 table {
   width: 100%;
@@ -141,10 +212,19 @@ tr:nth-child(even) td {
   background-color: #f3f3f3;
 }
 
+
+
+
+
+
+
+
+
+
 /* Sortier-Icon */
 .sort-icons {
   font-size: 0.8em;
-  margin-left: 5px;
+  margin-inline-start: 5px;
   color: white;
 }
 
@@ -196,19 +276,40 @@ th {
 /* Footer */
 
 .footer {
+  background-color: #d1d4a7;
   color: #4a6129;
-  margin-top: 2rem;
   padding: 2rem;
   text-align: center;
-  li {
-    line-height: 1.5;
-  }
-  a {
-    color: #4a6129;
-  }
-  hr {
-    height: 4px;
-    background-color: #d1d4a7;
-    border-radius: 2px;
-  }
 }
+.footer a {
+  color: #4a6129;
+}
+
+
+#question1, #question2, #question3, #question4 {
+  color: #7c4019; 
+}
+
+
+
+
+.climate img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
+}
+
+.about-info-section {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kontakt-formular {
+  max-width: 600px;  /* oder z. B. 500px */
+  margin-inline-start: 3rem; /* Abstand vom linken Rand */
+}
+
