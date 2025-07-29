@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Header -->
+  <!-- Header -->
 
     <nav
       class="navbar fixed-top navbar-expand-lg navbar-light bg-light"
@@ -44,56 +44,41 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto me-3">
-            <li class="nav-item active">
-              <a
-                id="nav-home"
-                href="index.html"
-                class="nav-link"
-                aria-current="page"
-              >
-                Startseite
-              </a>
-            </li>
+         <ul class="navbar-nav ms-auto me-3">
+          
+  <!-- Nav-Items -->
+  <li class="nav-item active">
+    <a id="nav-home" href="index.html" class="nav-link" aria-current="page">Startseite</a>
+  </li>
+  <li class="nav-item">
+    <a id="nav-info" href="info.html" class="nav-link">Info</a>
+  </li>
+  <li class="nav-item">
+    <a id="nav-about" href="about.html" class="nav-link">Über Uns</a>
+  </li>
+  <li class="nav-item">
+    <a id="nav-contact" href="contact.html" class="nav-link">Kontakt</a>
+  </li>
 
-            <li class="nav-item">
-              <a id="nav-info" href="info.html" class="nav-link"> Info </a>
-            </li>
-
-            <li class="nav-item">
-              <a id="nav-about" href="about.html" class="nav-link">
-                Über Uns
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a id="nav-contact" href="contact.html" class="nav-link">
-                Kontakt
-              </a>
-            </li>
-          </ul>
-
-          <div class="dropdown">
-            <button
-              class="btn custom-btn dropdown-toggle"
-              type="button"
-              id="languageDropdown"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Deutsch
-            </button>
-                <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#" data-lang="de">Deutsch</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#" data-lang="en">English</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#" data-lang="ar">اللغة العربية</a>
-              </li>
-            </ul>
+  <!-- Sprachwechsel-Dropdown-Button -->
+  <li class="nav-item dropdown language-switcher">
+    <a
+      class="nav-link dropdown-toggle"
+      href="#"
+      id="languageDropdown"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Deutsch
+    </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li>
+      <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+      <li><a class="dropdown-item" href="#" data-lang="ar">اللغة العربية</a></li>
+    </ul>
+  </li>
+</ul>
           </div>
         </div>
       </div>
