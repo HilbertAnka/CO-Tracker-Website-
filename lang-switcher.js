@@ -198,13 +198,8 @@ function switchLanguage(lang) {
 
     renderTable();
     setupSortListeners();
+    updateTotalPages();
     renderPagination();
   }
 }
 
-// Beim Laden der Seite Sprache setzen
-document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("language") || "de";
-   console.log("Geladene Sprache:", savedLang); 
-  switchLanguage(savedLang);
-});

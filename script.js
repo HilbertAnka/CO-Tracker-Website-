@@ -1,29 +1,29 @@
 
+// Globale Variablen + Konstanten
 let originalData = [];
 let data = [];
 let currentLanguage = 'de';
-
 let allLanguageData = {};  // globales Objekt für alle Sprachdaten
-
 // Tabelle + Pagination-Variablen
 const pageSize = 10;
 let curPage = 1;
 let totalPages;
-
 // Filter-Variablen
 let filterCountry = "";
 let filterCompany = "";
 
+
 // DOM-Elemente
 const dataBody = document.getElementById("data-body");
 
+
+// Event-Listener für Sprache (Dropdown)
 document.querySelectorAll(".dropdown-item").forEach(item => {
   item.addEventListener("click", () => {
     const lang = item.dataset.lang;
     switchLanguage(lang);
   });
 });
-
 
 
 // JSON-Daten laden und initialisieren
@@ -34,9 +34,9 @@ fetch("./table_data.json")
   })
   .then((jsonData) => {
     allLanguageData = jsonData;
- const savedLang = localStorage.getItem("language") || "de";
-currentLanguage = savedLang;
-switchLanguage(currentLanguage);
+    const savedLang = localStorage.getItem("language") || "de";
+    currentLanguage = savedLang;
+    switchLanguage(currentLanguage);
   })
   .catch((error) => {
     console.error("Fehler:", error);
@@ -54,27 +54,24 @@ function createRow(row) { // erzeugt aus einem Datenobjekt ein HTML-String (Tabe
   `;
 }
 
+
 function renderTable() {
   const start = (curPage - 1) * pageSize; // Berechnung des sichtbaren Bereichs
   const end = start + pageSize;
   const paginatedData = data.slice(start, end); // schneidet das Datenarray auf genau diesen Bereich zu
-
   dataBody.innerHTML = paginatedData.map(createRow).join("");
 }
 
 
-
 // Pagination (Buttons + Seitenzahlen dynamisch erstellen)
-
 function renderPagination() {
   const pagination = document.querySelector(".pagination");
   pagination.innerHTML = ""; // Alles löschen
-
   // === Previous Button ===
   const prevLi = document.createElement("li");
   prevLi.classList.add("page-item");
-  if (curPage === 1) prevLi.classList.add("disabled");
 
+  if (curPage === 1) prevLi.classList.add("disabled");
   const prevA = document.createElement("a");
   prevA.classList.add("page-link");
   prevA.href = "#";
@@ -88,10 +85,8 @@ function renderPagination() {
       renderPagination();
     }
   });
-
   prevLi.appendChild(prevA);
   pagination.appendChild(prevLi);
-
   // === Seitenzahlen ===
   for (let i = 1; i <= totalPages; i++) {
     const li = document.createElement("li");
@@ -114,7 +109,9 @@ function renderPagination() {
     pagination.appendChild(li);
   }
 
-  // === Next Button ===
+  
+
+    // === Next Button ===
   const nextLi = document.createElement("li");
   nextLi.classList.add("page-item");
   if (curPage === totalPages) nextLi.classList.add("disabled");
@@ -137,6 +134,11 @@ function renderPagination() {
   pagination.appendChild(nextLi);
 }
 
+// Neu-Berechnung der Seitenanzahl
+function updateTotalPages() {
+  totalPages = Math.ceil(data.length / pageSize);
+}
+
 
 
 // Sortier-Funktion
@@ -148,10 +150,10 @@ function setupSortListeners() {
     const label = th.querySelector(".sort-label");
     const upIcon = th.querySelector(".up");
     const downIcon = th.querySelector(".down");
-      if (!label || !upIcon || !downIcon) {
+    if (!label || !upIcon || !downIcon) {
     // Überspringen, falls eins der Elemente fehlt
     return;
-  }
+    }
     const key = label.dataset.key;
 
     // bei Klick auf den Spaltennamen → Tabelle auf nicht-sortierten Ursprungszustand zurücksetzen
@@ -190,16 +192,17 @@ function sortByKey(key, asc) {
 
     if (!isNaN(valA) && !isNaN(valB)) {
         valA = Number(valA);
-    valB = Number(valB);
-      return asc ? valA - valB : valB - valA;
+        valB = Number(valB);
+        return asc ? valA - valB : valB - valA;
     } else {
       return asc
-        ? valA.localeCompare(valB, "de", { numeric: true })
-        : valB.localeCompare(valA, "de", { numeric: true });
-    }
+      ? valA.localeCompare(valB, "de", { numeric: true })
+      : valB.localeCompare(valA, "de", { numeric: true });
+      }
   });
 
   updateSortIndicators(); // Pfeil hervorheben
+  updateTotalPages();
   curPage = 1;
   renderTable();
   renderPagination();
@@ -224,6 +227,7 @@ function updateSortIndicators() {
         down.classList.add("active");
       }
     }
+    
   });
 }
 
@@ -247,17 +251,24 @@ function applyFilters() {
   });
 
   curPage = 1; // nach dem Filtern zurück auf Seite 1
+  updateTotalPages(); //Anzahl der Seiten wird neu berechnet
   renderTable(); // Tabelle neu gerendert
   renderPagination(); // Seitenzahl neu gerendert
 }
 
 // Filterfunktion reagiert live, sobald im Textfeld getippt wird
-document.querySelector("#filterCountry").addEventListener("input", (e) => {
-  filterCountry = e.target.value;
-  applyFilters();
-});
+const countryInput = document.querySelector("#filterCountry");
+if (countryInput) {
+  countryInput.addEventListener("input", (e) => {
+    filterCountry = e.target.value;
+    applyFilters();
+  });
+}
 
-document.querySelector("#filterCompany").addEventListener("input", (e) => {
-  filterCompany = e.target.value;
-  applyFilters();
-});
+const companyInput = document.querySelector("#filterCompany");
+if (companyInput) {
+  companyInput.addEventListener("input", (e) => {
+    filterCompany = e.target.value;
+    applyFilters();
+  });
+}
