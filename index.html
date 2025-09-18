@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CO₂-Foottracker</title>
+    <link rel="icon" type="image/png" href="Bilder/favicon.png" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- Header -->
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" dir="ltr" >
+      <div class="container-fluid">
+        <a href="index.html" class="navbar-brand">
+          <img src="Bilder/Logo.png" width="70" height="70" alt="Logo" />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav ms-auto me-3">
+          
+            <!-- Nav-Items -->
+            <li class="nav-item active">
+              <a id="nav-home" href="index.html" class="nav-link" aria-current="page">Startseite</a>
+            </li>
+            <li class="nav-item">
+              <a id="nav-info" href="info.html" class="nav-link">Info</a>
+            </li>
+            <li class="nav-item">
+              <a id="nav-about" href="about.html" class="nav-link">Über Uns</a>
+            </li>
+            <li class="nav-item">
+              <a id="nav-contact" href="contact.html" class="nav-link">Kontakt</a>
+            </li>
+            <!-- Sprachwechsel-Dropdown-Button -->
+            <li class="nav-item dropdown language-switcher">
+             <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Deutsch</a>
+               <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li>
+                  <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+                  <li><a class="dropdown-item" href="#" data-lang="ar">اللغة العربية</a></li>
+               </ul>
+             </li>
+           </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Body -->
+
+    <main style="flex-grow: 1">
+
+      <!-- lokales Menü -->
+
+       <nav class="nav" aria-label="Sections of the homepage">
+        <a id="local-nav-home" class="nav-link active" aria-current="page" href="#hero-heading">Start</a>
+        <a id="local-nav-info" class="nav-link" href="#info">Info</a>
+        <a id="local-nav-table" class="nav-link" href="#table-heading">Tabelle</a>
+       </nav>
+
+       <!-- Hero-Image mit H1 und H2 -->
+
+      <div class="container-fluid image-container">
+        <figure class="eyecatcher">
+         <img src="Bilder/Regenwald.jpg" alt="Luftaufnahme eines Regenwalds"/>
+         <figcaption>
+          <h1 id="hero-heading">Transparenz für eine grünere Zukunft!</h1>
+          <h2 id="hero-subheading">
+            Wir machen sichtbar, wo CO₂ entsteht - damit Unternehmen, Länder und
+            Menschen gemeinsam nachhaltige Entscheidungen treffen können.
+          </h2>
+         </figcaption>
+        </figure>
+      </div>
+
+       <!-- Textbox -->
+
+      <div id="info" class="info-section">
+        <h3 id="textbox-heading">Sichtbar machen, was zählt!</h3>
+        <h5 id="textbox-text">
+         Transparenz für eine grünere Zukunft beginnt mit Wissen. Unsere
+         Datenübersicht zeigt, welche Unternehmen welchen CO₂-Fußabdruck
+         hinterlassen – verständlich, vergleichbar und zugänglich. Denn nur, wenn
+         sichtbar wird, wo Emissionen entstehen, können echte Veränderungen
+         angestoßen werden. Informiere dich und trage dazu bei, den Weg in eine
+         verantwortungsvolle, klimabewusste Zukunft mitzugestalten.
+        </h5>
+      </div>
+
+       <!-- CO₂-Tabelle (wird dynamisch mit JavaScript erzeugt) -->
+      <div class="tabellen-überschrift">
+        <h2 id="table-heading">CO₂-Tabelle</h2>
+      </div>
+
+      <div class="container table-container">
+        <div class="table-responsive">
+           <table id="emissionsTable">
+            <thead>
+              <tr>
+                <th>
+                  <span id="country" class="sort-label" data-key="country">Land</span>
+                  <span class="sort-icons">
+                    <span class="up">▲</span>
+                    <span class="down">▼</span>
+                  </span>
+                </th>
+                <th>
+                  <span id="company" class="sort-label" data-key="company">Unternehmen</span>
+                  <span class="sort-icons">
+                    <span class="up">▲</span>
+                    <span class="down">▼</span>
+                  </span>
+                </th>
+                <th>
+                  <span id="emissions" class="sort-label" data-key="emissions">CO₂-Emissionen <br> (Tonnen pro Jahr)</span>
+                  <span class="sort-icons">
+                    <span class="up">▲</span>
+                    <span class="down">▼</span>
+                  </span>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <input type="text" id="filterCountry" class="rounded-pill shadow-sm filterInput" placeholder=""/>
+                </th>
+                <th>
+                  <input type="text" id="filterCompany" class="rounded-pill shadow-sm filterInput" placeholder=""/>
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="data-body"></tbody>
+           </table>
+
+           <nav aria-label="Table-navigation" dir="ltr">
+              <ul class="pagination"></ul>
+           </nav>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer bg-light">
+      <div>
+        <div>
+          <p>CO₂ Tracker | Lindenstraße 34 | 12555 Berlin | mail@co2tracker.com</p>
+          <p>
+            <a id="imprint" href="imprint-policy.html">Impressum</a> |
+            <a id="policy" href="imprint-policy.html">Datenschutz</a>
+          </p>
+        </div>
+      </div>
+      <hr/>
+      <div>
+        <div id="copyright">Copyright &copy; 2025 CO₂ Tracker. Alle Rechte vorbehalten.</div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="lang-switcher.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

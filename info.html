@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CO2-Foottracker</title>
+    <link rel="icon" type="image/png" href="Bilder/favicon.png" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+ 
+    <!-- Header -->
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" dir="ltr" >
+      <div class="container-fluid">
+        <a href="index.html" class="navbar-brand">
+          <img src="Bilder/Logo.png" width="70" height="70" alt="Logo" />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav ms-auto me-3">
+          
+            <!-- Nav-Items -->
+            <li class="nav-item active">
+              <a id="nav-home" href="index.html" class="nav-link" aria-current="page">Startseite</a>
+            </li>
+            <li class="nav-item">
+              <a id="nav-info" href="info.html" class="nav-link">Info</a>
+            </li>
+            <li class="nav-item">
+              <a id="nav-about" href="about.html" class="nav-link">Über Uns</a>
+            </li>
+            <li class="nav-item">
+              <a id="nav-contact" href="contact.html" class="nav-link">Kontakt</a>
+            </li>
+            <!-- Sprachwechsel-Dropdown-Button -->
+            <li class="nav-item dropdown language-switcher">
+             <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Deutsch</a>
+               <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li>
+                  <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+                  <li><a class="dropdown-item" href="#" data-lang="ar">اللغة العربية</a></li>
+               </ul>
+             </li>
+           </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Body -->
+
+    <main style="flex-grow: 1">
+
+      <!-- lokales Menü -->
+
+        <nav class="nav" aria-label="Sections of the info-site">
+            <a id="local-nav-question1" class="nav-link active" aria-current="page" href="#question1">Was ist CO₂?</a>
+            <a id="local-nav-question2" class="nav-link" href="#question2">Wie wird es gemessen?</a>
+            <a id="local-nav-question3" class="nav-link" href="#question3">Bedeutung des Klimawandels</a>
+            <a id="local-nav-question4" class="nav-link" href="#question4">Wer trägt Verantwortung?</a>
+        </nav>
+
+      <!-- Info-Textbox -->
+
+        <div class="info-section">
+            <h5 id="question1">Was ist CO₂ und warum ist es wichtig?</h5>
+            <p id="answer1">
+                Kohlenstoffdioxid (CO₂) ist ein farb- und geruchloses Gas, das
+                natürlicherweise in der Erdatmosphäre vorkommt. Es entsteht unter
+                anderem durch natürliche Prozesse wie die Atmung von Tieren und
+                Menschen, Vulkanausbrüche oder die Zersetzung organischer Stoffe. In
+                einem ausgewogenen Kohlenstoffkreislauf wird CO₂ kontinuierlich
+                aufgenommen und abgegeben – zum Beispiel von Pflanzen, Böden und den
+                Ozeanen. Problematisch wird CO₂ jedoch, wenn es in großen Mengen
+                zusätzlich in die Atmosphäre gelangt – vor allem durch menschliches
+                Handeln. Bei der Verbrennung fossiler Brennstoffe wie Kohle, Erdöl und
+                Erdgas wird Kohlenstoff freigesetzt, der über Millionen von Jahren
+                gespeichert war. Auch industrielle Prozesse wie die Zementherstellung
+                oder die großflächige Rodung von Wäldern setzen CO₂ frei, das dann
+                nicht mehr durch natürliche Senken ausgeglichen werden kann. CO₂ ist
+                eines der wichtigsten sogenannten Treibhausgase. Es beeinflusst, wie
+                viel Wärme in der Atmosphäre gespeichert bleibt und wie viel wieder
+                ins All abgegeben wird. Ohne diesen natürlichen Treibhauseffekt wäre
+                das Leben auf der Erde nicht möglich – doch durch den starken Anstieg
+                der CO₂-Konzentration wird dieser Effekt verstärkt, was langfristig
+                das Klima auf der Erde verändert.
+            </p>
+
+            <h5 id="question2">Wie wird CO₂ gemessen?</h5>
+            <p id="answer2">
+                Die Messung von CO₂-Emissionen ist ein zentraler Bestandteil der
+                internationalen Klimaberichterstattung. In der Regel wird die Menge an
+                ausgestoßenem CO₂ in Tonnen pro Jahr angegeben – sowohl auf der Ebene
+                einzelner Unternehmen als auch ganzer Staaten. Dabei wird
+                unterschieden zwischen direkten Emissionen, z.B. aus Industrieanlagen
+                oder Fahrzeugen, und indirekten Emissionen, etwa durch den
+                Stromverbrauch. Um diese Daten zu erfassen, greifen Unternehmen auf
+                verschiedene Methoden zurück: Sie analysieren Energieverbrauch,
+                Produktionsdaten, Materialeinsatz und Transportwege. Auch
+                Dienstleister wie Rechenzentren, Gebäudeheizungen oder Flugreisen
+                fließen in viele CO₂-Bilanzen mit ein. Der Aufwand und die Genauigkeit
+                hängen dabei stark von der Branche und den verfügbaren Daten ab. Damit
+                CO₂-Daten vergleichbar und verlässlich sind, gibt es internationale
+                Standards wie das Greenhouse Gas Protocol oder die ISO 14064. Sie
+                geben vor, wie Emissionen erfasst, kategorisiert und dokumentiert
+                werden sollen – ein wichtiger Schritt, um Transparenz zu schaffen und
+                Fortschritte messbar zu machen.
+            </p>
+
+            <h5 id="question3">Was bedeutet das für unseren Planeten?</h5>
+            <p id="answer3">
+                Der anhaltende Anstieg der CO₂-Konzentration in der Atmosphäre hat
+                tiefgreifende Auswirkungen auf das globale Klima. Bereits heute
+                beobachten wir Veränderungen, die direkt mit dem menschengemachten
+                Ausstoß von Treibhausgasen in Verbindung stehen. Dazu gehören
+                häufigere und intensivere Wetterextreme wie Hitzewellen,
+                Überschwemmungen oder Stürme, aber auch schleichende Entwicklungen wie
+                der Anstieg des Meeresspiegels oder die Verschiebung von Klimazonen.
+                Ein weiterer Effekt ist die Versauerung der Ozeane. CO₂ wird zum Teil
+                vom Meer aufgenommen, was dort die chemische Zusammensetzung verändert
+                – mit Folgen für Korallenriffe und marine Ökosysteme. Gleichzeitig
+                schmelzen Gletscher und Eisschilde, was nicht nur den Meeresspiegel
+                steigen lässt, sondern auch regionale Wasserverfügbarkeit und
+                Lebensräume bedroht. Wissenschaftler*innen und Klimainstitutionen
+                warnen eindringlich davor, die globale Erwärmung über 1,5°C
+                hinaussteigen zu lassen. Schon ein scheinbar kleiner Temperaturanstieg
+                kann langfristige, teils unumkehrbare Schäden für Mensch und Umwelt
+                nach sich ziehen. Deshalb gilt: Je früher und entschlossener gehandelt
+                wird, desto besser lassen sich Folgen abmildern.
+            </p>
+
+            <h5 id="question4">Wer trägt Verantwortung?</h5>
+            <p id="answer4">
+                Die Verantwortung für den CO₂-Ausstoß ist weltweit unterschiedlich
+                verteilt – und doch betrifft der Klimawandel alle. Große Emittenten
+                wie Industrieunternehmen oder energielastige Branchen stehen in der
+                Pflicht, ihre Prozesse nachhaltiger zu gestalten. Dazu gehören
+                beispielsweise effizientere Technologien, der Umstieg auf erneuerbare
+                Energien oder CO₂-Kompensation durch Investitionen in
+                Klimaschutzprojekte. Aber auch Regierungen und internationale
+                Institutionen spielen eine zentrale Rolle. Sie können durch Gesetze,
+                CO₂-Preise und Förderprogramme den Rahmen schaffen, in dem
+                nachhaltiges Wirtschaften möglich und attraktiv wird. Nationale
+                Klimaziele, Berichterstattungspflichten und CO₂-Bilanzen sorgen für
+                mehr Transparenz und Verbindlichkeit. Gleichzeitig ist jede*r Einzelne
+                Teil der Lösung. Ob durch klimafreundliche Mobilität, bewussten
+                Konsum, erneuerbare Energien im Haushalt oder politisches Engagement –
+                viele kleine Entscheidungen tragen im Alltag dazu bei, die Emissionen
+                zu senken und den Wandel voranzutreiben. Die Klimakrise ist eine
+                globale Herausforderung – und kann nur durch gemeinsames Handeln
+                bewältigt werden.
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer bg-light">
+      <div>
+        <div>
+          <p>CO₂ Tracker | Lindenstraße 34 | 12555 Berlin | mail@co2tracker.com</p>
+          <p>
+            <a id="imprint" href="imprint-policy.html">Impressum</a> |
+            <a id="policy" href="imprint-policy.html">Datenschutz</a>
+          </p>
+        </div>
+      </div>
+      <hr/>
+      <div>
+        <div id="copyright">Copyright &copy; 2025 CO₂ Tracker. Alle Rechte vorbehalten.</div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="lang-switcher.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

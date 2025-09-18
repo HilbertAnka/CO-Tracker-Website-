@@ -1,0 +1,317 @@
+html, body {
+  background-color: #e4e6cc;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2 {
+  color: white;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+h3, h4, h5, p {
+  margin: 1rem 0;
+  color: rgb(85, 91, 61);
+  font-weight: bold;
+}
+
+#hero-heading,
+#info,
+#table-heading,
+#question1, #question2, #question3, #question4, 
+#about-info, 
+#imprint-text, #policy-text {
+scroll-margin-top: 100px; 
+}
+
+
+/* =====================
+Header-Stile
+===================== */
+
+.nav {
+  margin-inline-start: 1rem;
+  margin-top: 7rem;
+}
+.nav-link {
+  color: #4a6129;
+}
+
+/* =====================
+Hauptinhalt-Stile
+===================== */
+
+/* Eyecatcher */
+.eyecatcher {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.eyecatcher img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.eyecatcher figcaption {
+  position: absolute;
+  bottom: 2%;
+  margin-inline-start: 3rem;
+  width: 50%;
+  color: white;
+}
+
+.eyecatcher h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 2rem;
+}
+
+.eyecatcher h2 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin-bottom: 4rem;
+}
+/* ---kleine Bildschirme, <628px und >400px--- */
+@media (max-width: 628px) and (min-width: 401px) {
+  .eyecatcher figcaption {
+    margin-inline-start: 1rem;   
+    width: 90%;                 
+  }
+  .eyecatcher h1 {
+    font-size: 1.2rem;        
+    margin-bottom: 1rem;
+  }
+  .eyecatcher h2 {
+    font-size: 0.9rem;          
+    margin-bottom: 1.5rem;
+  }
+}
+/* ---sehr kleine Bildschirme, <400px--- */
+@media (max-width: 400px) {
+  .eyecatcher figcaption {
+    margin-inline-start: 1rem; 
+    width: 90%;                  
+  }
+  .eyecatcher h1 {
+    font-size: 1rem;           
+    margin-bottom: 0.5rem;     
+  }
+  .eyecatcher h2 {
+    font-size: 0.7rem;          
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Text-Boxen */
+.info-section {
+  margin: 1rem auto 1rem auto;
+  max-width: 1400px;
+  padding: 1.5rem;
+  background-color: #d5d697;
+  border: 2px solid white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  width: 95%;
+}
+/* ---kleine Bildschirme, <576px--- */
+@media (max-width: 576px) {
+  .info-section {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+}
+
+html[lang="ar"] .info-section {
+  text-align: right;
+}
+
+.info-section #textbox-heading {color: #6e580a;}
+
+
+/* Tabelle */
+.tabellen-überschrift {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tabellen-überschrift h2 {
+  color: #344b12;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* ---große Bildschirme, >1084px---*/
+@media (min-width: 1084px) {
+  .table-container {
+    max-width: 75%;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px;
+  text-align: start;
+}
+
+th {
+  background-color: #344b12;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+td {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+tr:nth-child(even) td {
+  background-color: #f3f3f3;
+}
+
+/* Sortier-Icon */
+.sort-icons {
+  font-size: 0.8em;
+  margin-inline-start: 5px;
+  color: white;
+}
+
+.sort-icons .up.active, .sort-icons .down.active {
+  color: #d3de5b;
+  font-weight: bold;
+  text-shadow: 0 0 1px #344b12;
+}
+
+th {
+  user-select: none;
+}
+
+/* Previous-Next-Button */
+.pagination {
+  margin-top: 1rem;
+}
+
+.page-link {
+  color: #000;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-link:hover {
+  background-color: #eee;
+  color: #6d7424;
+}
+
+.page-item.active .page-link {
+  background-color: #344b12;
+  color: #fff;
+}
+
+.sort-label {
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.filterInput {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+}
+
+
+/* Info-Seite */
+#question1, #question2, #question3, #question4 {
+  color: #7c4019; 
+}
+
+
+/* About-Us-Seite */
+.climate img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Kontakt-Seite */
+.kontakt-formular {
+  max-width: 600px;
+  margin-inline-start: 1rem;         
+  padding: 1rem;           
+  box-sizing: border-box;
+}
+/* ---sehr kleine Bildschirme, < 400px--- */
+@media (max-width: 400px) {
+  .kontakt-formular {
+    margin-inline: 1rem;    
+    max-width: 100%;       
+    padding: 0.5rem;     
+  }
+}
+
+#send-your-message {
+  background-color: #4a6129;
+  color: white;
+}
+
+#send-your-message:hover {
+  background-color: #5d6b49;
+}
+
+
+/* =====================
+Footer-Stile
+===================== */
+
+.footer {
+  background-color: #d1d4a7;
+  color: #4a6129;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer a {
+  color: #4a6129;
+}
+
+
+
